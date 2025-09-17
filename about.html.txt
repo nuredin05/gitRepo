@@ -4,9 +4,6 @@
 <title>Page Title</title>
 </head>
 <body>
-
-<h1>This is a Heading</h1>
-<p>This is the  paragraph.</p>
-and thi sis about ....
+thi sis all about our company 
 </body>
 </html> 
