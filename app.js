@@ -136,6 +136,7 @@ db.query('USE evan_db', (err, result) => {
         if (err) throw err;
         res.json(results);
     });
-res.send('Database and tables created, sample data inserted.');
-console.log('you have created db!');  
+
+   
+
 });
