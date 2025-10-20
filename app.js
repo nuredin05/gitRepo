@@ -2,8 +2,8 @@ const mysql = require('mysql');
 let express = require('express');
 app = express();
 
-app.listen(8080, () => {
-    console.log('Server is running on port 3001');
+app.listen(8081, () => {
+    console.log('Server is running on port dataport');
 });
 
 app.get('/', (req, res) => {
