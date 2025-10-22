@@ -23,6 +23,8 @@ db.connect((err) => {
     }
     console.log('Connected to the database');
 });
+
+
 app.get('/create', (req, res) => {
     res.send('you have created db!');
 //create database
@@ -54,7 +56,9 @@ let course= `CREATE TABLE IF NOT EXISTS course (
     course_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(25) NOT NULL,
     department_id INT,
-    FOREIGN KEY (department_id) REFERENCES department(department_id)
+    FOREIGN KEY (department_id) REFERENCES department(department_id),
+    student_id INT,
+    FOREIGN KEY (student_id) REFERENCES student(student_id)
 )`;     
 
 db.query(student, (err, result) => {
@@ -87,8 +91,8 @@ let Student = `INSERT INTO student (firstName, lastName, department, course, ema
 
 let departments = `INSERT INTO department (name, student_id) VALUES 
 ('Computer Science', 1),('Mathematics', 2),('Physics', 3),('Information Technology', 4),('Biology', 5),('Chemistry', 6),('Economics', 7) `;   
-let coursed= `INSERT INTO course (name, department_id) VALUES 
-('CS101', 1),('MATH101', 2),('PHYS101', 3),('IT101', 4),('CS102', 1),('MATH102', 2)`; 
+let coursed= `INSERT INTO course (name, department_id,student_id) VALUES 
+('CS101', 1, 1),('MATH101', 2, 2),('PHYS101', 3, 3),('IT101', 4, 4),('CS102', 1, 1),('MATH102', 2, 2)`; 
 
 db.query(Student, (err, result) => {
     if (err) throw err;
@@ -111,8 +115,6 @@ db.query(coursed, (err, result) => {
 res.send('Database and tables created, sample data inserted.');
 console.log('you have created db!');  
 
-
-});
 
 
 app.get('/data', (req, res) => {
@@ -139,4 +141,4 @@ db.query('USE evan_db', (err, result) => {
 
    
 
-});
+});});
